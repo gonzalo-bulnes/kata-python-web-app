@@ -20,6 +20,7 @@ Development
 -----------
 
 [![Build Status](https://travis-ci.org/gonzalo-bulnes/kata-python-web-app.svg?branch=master)](https://travis-ci.org/gonzalo-bulnes/kata-python-web-app)
+[![Demo](https://img.shields.io/badge/demo-colorsandnumbers-7057C0.svg)](https://numbersandcolors.herokuapp.com)
 
 ```bash
 # create a virtual environment (optional)
@@ -41,3 +42,30 @@ FLASK_APP=numbersandcolors.py python -m flask run # then visit http://127.0.0.1:
 
 # make changes, contribute ideas, have fun!
 ```
+
+### Deployment to Heroku
+
+#### Manual
+
+```bash
+# install the Heroku CLI, then:
+heroku login -i
+
+# intitial setup
+heroku git:remote -a numbersandcolors # or any name you like
+
+# to deploy:
+git push heroku master
+# to configure the app:
+heroku set:config COLOR=turquoise
+
+# then visit: https://numbersandcolors.herokuapp.com (or https://your-preferred-name.herokuapp.com)
+```
+
+#### Automatic
+
+_I'll add a Heroku button eventually, for now use deploy the app manually!_ 🥕 🥑
+
+### Notes
+
+- Remember to add any new dependency to `requirements.txt` with `pip freeze`! On Ubuntu (and other Debian systems) `pip freeze > requirements.txt` outputs some undue configuration. If that's the case for you, prefer: `pip freeze | grep -v "pkg-resources" > requirements.txt`.
