@@ -19,6 +19,8 @@ Usage
 Development
 -----------
 
+[![Build Status](https://travis-ci.org/gonzalo-bulnes/kata-python-web-app.svg?branch=master)](https://travis-ci.org/gonzalo-bulnes/kata-python-web-app)
+
 ```bash
 # create a virtual environment (optional)
 python -m venv venv # using Python 3, search for virtualenv for Python 2
