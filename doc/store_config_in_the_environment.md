@@ -43,6 +43,19 @@ API_KEY=sd345fluae5w345 python app.py
 
 Changing the API_KEY does not require to modify the program, and more importantly, if I want to share this program with you, I can give you `app.py` without disclosing my personal `API_KEY` to you.
 
+Why in the environment?
+-----------------------
+
+> Another approach to config is the use of config files which are not checked into revision control [...]. This is a huge improvement over using constants which are checked into the code repo, but still has weaknesses: it’s easy to mistakenly check in a config file to the repo; there is a tendency for config files to be scattered about in different places and different formats, making it hard to see and manage all the config in one place. Further, these formats tend to be language- or framework-specific.
+ _(source: [The Twelve-Factor App](https://12factor.net/config))_
+
+ A note on testing
+ -----------------
+
+The environment is not part of the application. That's why it serves our purposes, but that also means that writing tests for the parts of the code that reply on it is slightly more complex than writing usual unit tests.
+
+In the example below, a special tool [`EnvironmentVarGuard`](https://docs.python.org/3/library/test.html#test.support.EnvironmentVarGuard) (part of Python's standard library) is used to simulate changes in the environment from within the test cases.
+
 Demo
 ----
 
