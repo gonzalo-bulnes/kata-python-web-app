@@ -50,7 +50,7 @@ Let's identify side-effects:
 - ① Current weather can obviously change from one API call to another. It is a side-effect.
 - ② This comparison should not change over time. However, there is an implicit assumption that `current_temp` in expressed in degrees Fahrenheit...
 - ③ ...which at this point depends on the weather service API.
-- ④ And since we're looking at this that could change in the weather service API, nothing says that the temperature will always be called `"temperature"` or be nested at the first level of the JSON response.
+- ④ And since we're looking at what could change in the weather service API, nothing says that the temperature will always be called `"temperature"` or be nested at the first level of the JSON response.
 
 ----
 
