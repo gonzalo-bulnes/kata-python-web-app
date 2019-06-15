@@ -38,7 +38,7 @@ From data to namespaces
 
 Naming is hard, and you might find different representations for similar information in your program. At first, that might look like a challenge, but it is an opportunity to identify domains (sub-domains, if you want) within your program.
 
-For example, you may write a program with the purpose to help you choose transportation mode for a given journey. You first get the data from a map service provider:
+For example, you may write a program with the purpose of helping you choose a transportation mode for a given journey. You first get the data from a map service provider:
 
 ```python
 # journey_planner.py
@@ -65,17 +65,17 @@ current_weather = 'raining' # is a weather
 
 # A "journey with weather" is a tuple of two ints and a string.
 # They represent the distance in meters, the altitude gain in meters and the weather.
-home_to_work = (2400, 30, 'sunny') # is a "journey with weather" ②
+home_to_supermarket = (2400, 30, 'sunny') # is a "journey with weather" ②
 
 # Expects a "journey with weather" as an argument.
 recommend_transportation_mode_for_journey(home_to_supermarket)
 ```
 
-- ② `journey with weather` is less obviously a good name. How many things could we add before things get confusing? To me, this is a [code smell](https://www.martinfowler.com/bliki/CodeSmell.html).
+- ② It is less obvious if `journey with weather` is a good name. How many things could we add before things get confusing? To me, this is a [code smell](https://www.martinfowler.com/bliki/CodeSmell.html).
 
 We already have a `journey` though (①), we can't really give the same name to different things can we?
 
-The key idea here is that if the weather service and your transportation recommendation function have different meanings for the same word, it is because their context is different enough that they need different data to deal with the same information. It might be interesting to treat them as different domains.
+The key idea here is that if the weather service and your transportation recommendation function have different meanings for the same word, it is because their contexts are different enough that they need different data to deal with the same information. It might be interesting to treat them as different domains.
 
 ### Naming domains
 
@@ -93,7 +93,7 @@ home_to_work
 
 # A journey_planner_journey is a tuple of two ints and a string.
 # They represent the distance in meters, the altitude gain in meters and the weather.
-home_to_work = (2400, 30, 'sunny') # is a journey_planner_journey ②
+home_to_supermarket = (2400, 30, 'sunny') # is a journey_planner_journey ②
 
 # Expects a journey_planner_journey as an argument.
 recommend_transportation_mode_for_journey(home_to_supermarket)
@@ -117,20 +117,20 @@ home_to_work
 
 # A journey is a tuple of two ints and a string.
 # They represent the distance in meters, the altitude gain in meters and the weather.
-home_to_work = (2400, 30, 'sunny') # is a journey ⑥
+home_to_supermarket = (2400, 30, 'sunny') # is a journey ⑥
 
 # Expects a journey as an argument.
 recommend_transportation_mode_for_journey(home_to_supermarket)
 ```
 
 - ⑥ In the context of the `journey_planner` module, we might as well call this type `journey`. Now our data types read fine and are not ambiguous anymore.
-- ⑦ If you're thinking "could this be called `journey` in the `map_service` context?" you're on a good track!
+- ⑦ If you're wondering "Could this be called `journey` in the `map_service` context?" you're on a good track!
 
-There are two interesting things to notice at this point: the relationship between domains and what we'll call _namespaces_, And the relationship between those and change.
+There are two interesting things to notice at this point: first the relationship between domains and what we'll call _namespaces_, second the relationship between those have with change.
 
 ### Domains and namespaces
 
-The idea behind a **namespace** is that in different spaces, the same words can have different meanings. Family names can be thought of as namespaces for example. In Python, [module](https://docs.python.org/3/tutorial/modules.html) names can be used as namespaces. Let's do this.
+The idea behind a **namespace** is that in different spaces, the same words can have different meanings. Family names can be thought of as namespaces for example. Within your family, people obviously talk to you when calling your first name. In broader society, where many people share your first name, your family name helps to disambiguate. In Python, [module](https://docs.python.org/3/tutorial/modules.html) names can be used as namespaces. Let's do this.
 
 ```python
 # map_service.py
@@ -157,7 +157,7 @@ home_to_work
 
 # A journey is a tuple of two ints and a string.
 # They represent the distance in meters, the altitude gain in meters and the weather.
-home_to_work = (2400, 30, 'sunny') # is a journey
+home_to_supermarket = (2400, 30, 'sunny') # is a journey
 
 # Expects a journey as an argument.
 recommend_transportation_mode_for_journey(home_to_supermarket)
@@ -179,3 +179,18 @@ As a rule of thumb, we want things that change together to be grouped together, 
 But **not all domains are equal**. Sometimes, you'll be able to distinguish between aspects of your program that you could find a name for, consider as separate domains and split into modules — but that are very unlikely to change independently from one another!
 
 At that point, it is wise to ask what benefit you get out of splitting them apart. Although intellectually you might be able to tell the difference between them, maybe that distinction is not relevant _in the context of your program_. That's the right moment to stop staring at your data and to move to the next step. Remember: don't do more than needed.
+
+A note on side-effects
+----------------------
+
+If you took the time to [Identify side-effects and start isolating them][side-effects], you might we noticing that most of them belong to domains other than your program's main domain. That is an accurate observation, and this very step is indeed a continuation of that work and one step further towards making your code modular.
+
+  [side-effects]: ./identify_and_start_isolating_side_effects.md
+
+Further reading
+---------------
+
+- **How to Design Programs** if an excellent textbook, is a long read. Yet if the systematic approach to data caught your attention, I recommend you taking a look at the book's [preface][htdp-preface] (particularly "Systematic Program Design") and [Section 3.1][htdp-3-1] (particularly "The Design Process"). They changed the way I think about programming.
+
+  [htdp-preface]: https://htdp.org/2019-02-24/part_preface.html
+  [htdp-3-1]: https://htdp.org/2019-02-24/part_one.html#%28part._sec~3adesign-func%29
