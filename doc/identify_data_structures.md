@@ -1,5 +1,5 @@
-Identify data structures
-========================
+Identify data structures and namespaces
+=======================================
 
 General idea
 ------------
@@ -194,3 +194,5 @@ Further reading
 
   [htdp-preface]: https://htdp.org/2019-02-24/part_preface.html
   [htdp-3-1]: https://htdp.org/2019-02-24/part_one.html#%28part._sec~3adesign-func%29
+
+- The last aphorism of [PEP20](https://www.python.org/dev/peps/pep-0020) — it took me a few years to understand what it was referring to! 😬

@@ -22,7 +22,9 @@ Let's get started!
   [config]: ./store_config_in_the_environment.md
   [side-effects]: ./identify_and_start_isolating_side_effects.md
   [data]: ./identify_data_structures.md
+  [emotions]: ./the_emotional_stuff.md
 
 1. [Store the configuration in the environment][config]
 1. [Identify side-effects and start isolating them][side-effects]
-1. [Identify data structures][data]
+1. [Identify data structures and namespaces][data]
+1. [The emotional stuff][emotions]
