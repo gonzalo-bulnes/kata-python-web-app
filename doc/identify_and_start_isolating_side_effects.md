@@ -22,7 +22,7 @@ How to identify side-effects?
 ### Useful criteria
 
 - Can I precisely predict the result of executing some code?
-- If I were to execute the same code multiple times, would it always return the same values? (e.g. `sing_birthday_song('Alice', 44)` vs `check_weather_outside()` or `roll_fancy_dice(12)`)
+- If I were to execute the same code multiple times, would it always return the same values? (e.g. `sing_birthday_song('Alice', 44)` _vs_ `check_weather_outside()` or `roll_fancy_dice(12)`)
 
 If the answer to any of those questions is "no", then there is likely a side-effect somewhere in the function. This is not an exhaustive list, but that's the idea.
 
