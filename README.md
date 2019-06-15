@@ -64,11 +64,18 @@ heroku set:config COLOR=turquoise
 
 #### Automatic
 
-_I'll add a Heroku button eventually, for now use deploy the app manually!_ 🥕 🥑
+Press the button to deploy this app to your [Heroku](https://heroku.com) account! _A free Heroku account should suffice._
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ### Notes
 
 - Remember to add any new dependency to `requirements.txt` with `pip freeze`! On Ubuntu (and other Debian systems) `pip freeze > requirements.txt` outputs some undue configuration. If that's the case for you, prefer: `pip freeze | grep -v "pkg-resources" > requirements.txt`.
+
+Credits
+-------
+
+The carrot emoji used as logo belongs to Google and [was published under the Apache License v2.0 as part of Noto Emoji](https://github.com/googlei18n/noto-emoji).
 
 License
 -------
