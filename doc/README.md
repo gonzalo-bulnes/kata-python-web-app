@@ -10,7 +10,7 @@ There is no "one true way" to write code or make it production-ready. What _prod
 Two different kinds of steps
 ----------------------------
 
-While most steps in the list below aim at increasing your understanding of your code and helping you gain confidence that either you or your teammates will be able to evolve it as needed, the first step is a little different. It has mostly not to do with your code, or the direct effects of your code.
+While most steps in the list below aim at increasing your understanding of your code and helping you gain confidence that either you or your teammates will be able to evolve it as needed, the first step is a little different. It has mostly not to do with your code, nor the direct effects of your code.
 
 The first step of the list —[Store the configuration in the environment][config]— is arbitrary in that it has first of all to do with security. The security of the information you use to do your job, and that could be used for different purposes. That is indeed why it's the first step in my list. Leaving credentials behind is frowned-upon, with reason! Don't do it, it's not difficult to fix.
 
@@ -30,3 +30,7 @@ Let's get started!
 1. [Identify data structures and namespaces][data]
 1. [The emotional stuff][emotions]
 1. [Release early, release often][release]
+
+
+<br/>
+<p align="right">— First: <a href="./store_config_in_the_environment.md">Store the configuration in the environment</a></p>

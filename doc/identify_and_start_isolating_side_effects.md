@@ -138,7 +138,7 @@ is_cold(current_temperature)
 ```
 
 - ⑦ Now that the function [documentation][docstring] (or name) makes explicit the dependency on the weather API and codifies the temperature unit, we can spare some explicitness. (YMMV, it's a readability trade-off.)
-- ⑧ Note that this function encapsulates multiple side-effects at once. Is that okay? Since they are all somewhat related (weather/weather API) I'd say yes, from the point of view of our code they are both far away enough to look the same. In practice, the weather API is unlikely to change much, if it was to become the case maybe making the conversions or temperature extraction explicit at that point would be a good idea. #iteration
+- ⑧ Note that this function encapsulates multiple side-effects at once. Is that okay? Since they are all somewhat related (weather/weather API) I'd say yes. From the point of view of our code they are both far away enough to look the same. In practice, the weather API is unlikely to change much. If it was to become the case, maybe making the conversion or temperature extraction explicit at that point would be a good idea. #iteration
 - ⑨ Now the code is clearly divided between function with side-effects (that will require specific testing) and functions without side-effects, that are fully reliable because well-tested already. If anything breaks, we know where to look : )
 
   [docstring]: https://www.python.org/dev/peps/pep-0257/
@@ -148,3 +148,6 @@ is_cold(current_temperature)
 If the only thing that remains to test are the functions with side-effects, and those functions contain no side-effect-free logic, then most of the logic of our code is properly tested and reliable.
 
 Of course, we may be making mistakes in how we fetch data from our weather API, but manual testing will cover that satisfactorily for some time and there are better things to do next if we have time to spare!
+
+<br/>
+<p align="right">— Next: <a href="./identify_data_structures.md">Identify data structures and namespaces</a></p>

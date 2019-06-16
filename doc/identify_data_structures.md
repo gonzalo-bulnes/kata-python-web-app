@@ -6,7 +6,7 @@ General idea
 
 Once the code "works", that its side-effects are identified and isolated and that it's core code is tested we can be reasonably confident that it's going to do what we intended. It's time to ask ourselves how to build from there. Although it's certainly not mandatory, we spent time writing this code, and it would be great to be able to justify that investment over time.
 
-There are two main ways this code will likely be built upon. Either it will evolve, to follow the evolving understanding we'll acquire of its impact, or we'll extend it to cover aspects of the domain that we didn't foresee. Or both! In any case, not all sections of the code will change together, and the better we understand that, the simpler, nicer —and cheaper— change will become.
+There are two main ways this code will likely be built upon. Either it will evolve to follow the evolving understanding we'll acquire of its impact, or we'll extend it to cover aspects of the domain that we didn't foresee. Or both! In any case, not all sections of the code will change together, and the better we understand that, the simpler, nicer —and cheaper— change will become.
 
 One way to get that understanding is looking at our data.
 
@@ -53,7 +53,7 @@ home_to_work
 
 ----
 
-But for you, the journey is definitely not the same if walking under the sun or under the rain. You'd take the bus if it's raining, even for a short distance. And you need that information to feed into the transport mode selector.
+But for you, the journey is definitely not the same if walking under the sun or under the rain. You'd take the bus if it's raining, even for a short distance. And you need that information to feed into the transportation mode selector.
 
 ```python
 # journey_planner.py
@@ -130,7 +130,7 @@ There are two interesting things to notice at this point: first the relationship
 
 ### Domains and namespaces
 
-The idea behind a **namespace** is that in different spaces, the same words can have different meanings. Family names can be thought of as namespaces for example. Within your family, people obviously talk to you when calling your first name. In broader society, where many people share your first name, your family name helps to disambiguate. In Python, [module](https://docs.python.org/3/tutorial/modules.html) names can be used as namespaces. Let's do this.
+The idea behind a **namespace** is that in different spaces, the same words can have different meanings. Family names can be thought of as namespaces for example. Within your family, people obviously talk to you when calling your first name. That might ot be true when you visit a friend, but your family name helps to disambiguate. In Python, [module](https://docs.python.org/3/tutorial/modules.html) names can be used as namespaces. Let's do this.
 
 ```python
 # map_service.py
@@ -172,7 +172,7 @@ recommend_transportation_mode_for_journey(home_to_supermarket)
 When to stop?
 -------------
 
-Remains for us to talk about the relationship between domains and namespaces on one hand, and change on the other. That is pretty quick: suffice to say that _often_, things that belong to the same domain tend to change together. If our map service starts using miles instead of kilometers to define a journey, it is likely that a few of the functions that it provides will change accordingly.
+Remains for us to talk about the relationship between domains and namespaces on one hand, and change on the other. That is pretty quick: suffice to say that _often_, things that belong to the same domain tend to change together. If our map service starts using kilometers instead of meters, or miles to define a journey, it is likely that a few of the functions that it provides will change accordingly.
 
 As a rule of thumb, we want things that change together to be grouped together, so that we know where to look for updates when that happens. Modules being both namespaces and separate files in Python are great for that.
 
@@ -196,3 +196,6 @@ Further reading
   [htdp-3-1]: https://htdp.org/2019-02-24/part_one.html#%28part._sec~3adesign-func%29
 
 - The last aphorism of [PEP20](https://www.python.org/dev/peps/pep-0020) — it took me a few years to understand what it was referring to! 😬
+
+<br/>
+<p align="right">— Next: <a href="./the_emotional_stuff.md">The emotional stuff</a></p>
