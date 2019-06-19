@@ -32,7 +32,7 @@ python -m venv venv # using Python 3, search for virtualenv for Python 2
 pip install -r requirements.txt
 
 # run the test suite
-python test_numbersandcolors.py
+pytest -v
 
 # pick a color, configure the application to use it
 export COLOR=turquoise
@@ -41,6 +41,9 @@ export COLOR=turquoise
 FLASK_APP=numbersandcolors.py python -m flask run # then visit http://127.0.0.1:5000
 
 # make changes, contribute ideas, have fun!
+
+# once you're done, deactivate the virtual environment
+deactivate
 ```
 
 ### Deployment to Heroku
